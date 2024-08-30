@@ -12,5 +12,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        binding.actionButton.setOnClickListener {
+            binding.inputEditText.setText("")
+        }
+        val data = mutableListOf("first text", "second text")
+        for(i in 0 .. 10){
+            data.add("text number $i")
+        }
+        binding.recyclerView.adapter = TestAdapter(data)
     }
 }
